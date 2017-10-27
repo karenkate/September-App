@@ -1,0 +1,42 @@
+<! Doctype html>
+
+<Html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sheet</title></head>
+
+<body style="background-image:url(img/sun.png);background-repeat:no-repeat;background-size:100% 100%;">
+
+<center>
+	<textarea style="align-items: center;background-color:pink;font-size:20;text-align:center;" id="ttle" placeholder="Title" cols=29 rows=1 style="resize: none; position: absolute; left: 280px; top: 100px; border-color: black;"></textarea><br><br>
+
+	<textarea style="align-items: center;background-image:url(img/copy.png);background-repeat:no-repeat;background-size:100% 100%;font-size:16;text-indent:50px" id="txtera" placeholder="Entries" cols=30 rows=20 style="resize: none; position: absolute; left: 280px; top: 160px; border-color: black;"></textarea><br><br>
+
+	<button onclick= "action()" type="button" id='save_button' style="width: 100; height: 30; position: absolute; left: 70px; top: 450px; border-color: black ">Save </button><br><br>
+	<button onclick= "action2()" type ="button" id='edit' style="width: 100; height: 30; position: absolute; left:200px; top: 450px; border-color: black ">Edit</button><br><br>
+	<a href= "mainform.html"> <button type ="button" style="width: 100; height: 30; position: absolute; left: 130px; top: 500px; border-color: black"> Back </button></a>
+
+	<script>
+	function action(){
+	var ttle = document.getElementById('ttle').value;
+	var txtera = document.getElementById('txtera').value;
+	if (ttle==''||txtera=='') {
+		alert('You must type something here!')
+	}
+	else{
+		window.localStorage.setItem('ttle', document.getElementById("ttle").value);
+	document.getElementById("ttle").value=null;
+		window.localStorage.setItem('txtera', document.getElementById("txtera").value);
+	document.getElementById("txtera").value=null;
+	}}
+	function action2(){
+		document.getElementById('ttle').value = window.localStorage.getItem('ttle')
+		document.getElementById('txtera').value = window.localStorage.getItem('txtera')
+}	
+	</script>
+
+</center>	
+</body>
+</Html>
